@@ -1,46 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE cardapio SYSTEM "definicoes.dtd">
 <cardapio>
-    <prato id="1">
+    <prato id="P1">
         <nome>Filé à Parmegiana</nome>
         <descricao>Filé de carne bovina empanado, coberto com molho de tomate e queijo derretido.</descricao>
-        <ingredientes>Filé mignon, farinha de rosca, ovos, molho de tomate, queijo muçarela, orégano.</ingredientes>
-        <preco>R$ 39,90</preco>
+        <ingredientes>
+            <ingrediente>Filé mignon</ingrediente>
+            <ingrediente>Farinha de rosca</ingrediente>
+            <ingrediente>Ovos</ingrediente>
+            <ingrediente>Molho de tomate</ingrediente>
+            <ingrediente>Queijo mussarela</ingrediente>
+            <ingrediente>Orégano</ingrediente>
+        </ingredientes>
+        <preco moeda="BRL">
+            &reais; 39,90
+        </preco>
         <calorias>850 kcal</calorias>
         <tempoPreparo>30 minutos</tempoPreparo>
     </prato>
 
-    <prato id="2">
+    <prato id="P2">
         <nome>Salmão Grelhado com Legumes</nome>
         <descricao>Filé de salmão grelhado servido com mix de legumes salteados na manteiga.</descricao>
-        <ingredientes>Salmão, brócolis, cenoura, abobrinha, azeite, manteiga, limão, sal e pimenta.</ingredientes>
-        <preco>R$ 54,00</preco>
+        <ingredientes>
+            <ingrediente>Salmão</ingrediente>
+            <ingrediente>Brócolis</ingrediente>
+            <ingrediente>Cenoura</ingrediente>
+            <ingrediente>Abobrinha</ingrediente>
+            <ingrediente>Azeite</ingrediente>
+            <ingrediente>Manteiga</ingrediente>
+            <ingrediente>Limão</ingrediente>
+            <ingrediente>Sal</ingrediente>
+            <ingrediente>Pimenta</ingrediente>
+        </ingredientes>
+        <preco moeda="BRL">
+            &reais; 54,00
+        </preco>
         <calorias>620 kcal</calorias>
         <tempoPreparo>25 minutos</tempoPreparo>
     </prato>
 
-    <prato id="3">
+    <prato id="P3">
         <nome>Risoto de Frango com Cogumelos</nome>
         <descricao>Arroz arbório cremoso com cubos de frango e cogumelos frescos.</descricao>
-        <ingredientes>Arroz arbório, peito de frango, cogumelos, cebola, alho, vinho branco, parmesão, creme de leite.</ingredientes>
-        <preco>R$ 36,50</preco>
+        <ingredientes>
+            <ingrediente>Arroz arbório</ingrediente>
+            <ingrediente>Peito de frango</ingrediente>
+            <ingrediente>Cogumelos</ingrediente>
+            <ingrediente>Cebola</ingrediente>
+            <ingrediente>Alho</ingrediente>
+            <ingrediente>Vinho branco</ingrediente>
+            <ingrediente>Parmesão</ingrediente>
+            <ingrediente>Creme de leite</ingrediente>
+        </ingredientes>
+        <preco moeda="BRL">
+            &reais; 36,50
+        </preco>
         <calorias>700 kcal</calorias>
         <tempoPreparo>35 minutos</tempoPreparo>
     </prato>
 
-    <prato id="4">
+    <prato id="P4">
         <nome>Lasanha de Berinjela</nome>
         <descricao>Lasanha vegetariana feita com camadas de berinjela, molho de tomate e queijo.</descricao>
-        <ingredientes>Berinjela, molho de tomate, queijo muçarela, parmesão, alho, cebola, azeite, manjericão.</ingredientes>
-        <preco>R$ 32,00</preco>
+        <ingredientes>
+            <ingrediente>Berinjela</ingrediente>
+            <ingrediente>Molho de tomate</ingrediente>
+            <ingrediente>Queijo mussarela</ingrediente>
+            <ingrediente>Parmesão</ingrediente>
+            <ingrediente>Alho</ingrediente>
+            <ingrediente>Cebola</ingrediente>
+            <ingrediente>Azeite</ingrediente>
+            <ingrediente>Manjericão</ingrediente>
+        </ingredientes>
+        <preco moeda="BRL">
+            &reais; 32,00
+        </preco>
         <calorias>580 kcal</calorias>
         <tempoPreparo>40 minutos</tempoPreparo>
     </prato>
     
-    <prato id="5">
+    <prato id="P5">
         <nome>Espaguete ao Alho e Óleo</nome>
         <descricao>Clássico da culinária italiana com sabor marcante e preparo rápido.</descricao>
-        <ingredientes>Espaguete, alho, azeite de oliva, salsinha, pimenta calabresa.</ingredientes>
-        <preco>R$ 27,90</preco>
+        <ingredientes>
+            <ingrediente>Espaguete</ingrediente>
+            <ingrediente>Alho</ingrediente>
+            <ingrediente>Azeite de oliva</ingrediente>
+            <ingrediente>Salsinha</ingrediente>
+            <ingrediente>Pimenta calabresa</ingrediente>
+        </ingredientes>
+        <preco moeda="BRL">
+            &reais; 27,90
+        </preco>
         <calorias>510 kcal</calorias>
         <tempoPreparo>20 minutos</tempoPreparo>
     </prato>
