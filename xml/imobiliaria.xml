@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE imobiliaria [
+    <!ELEMENT imobiliaria (imovel+)>
+    <!ELEMENT imovel (descricao, proprietario, endereco, caracteristicas, valor)>
+    
+    <!ELEMENT descricao (#PCDATA)>
+    
+    <!ELEMENT proprietario (nome, (email | telefone)+)>
+    <!ELEMENT nome (#PCDATA)>
+    <!ELEMENT email (#PCDATA)>
+    <!ELEMENT telefone (#PCDATA)>
+    
+    <!ELEMENT endereco (rua, bairro, cidade, numero?)>
+    <!ELEMENT rua (#PCDATA)>
+    <!ELEMENT bairro (#PCDATA)>
+    <!ELEMENT cidade (#PCDATA)>
+    <!ELEMENT numero (#PCDATA)>
+    
+    <!ELEMENT caracteristicas (tamanho, numQuartos, numBanheiros)>
+    <!ELEMENT tamanho (#PCDATA)>
+    <!ELEMENT numQuartos (#PCDATA)>
+    <!ELEMENT numBanheiros (#PCDATA)>
+    
+    <!ELEMENT valor (#PCDATA)>
+]>
+<imobiliaria>
+    <imovel>
+        <descricao>Apartamento com vista para o mar</descricao>
+        <proprietario>
+            <nome>João Silva</nome>
+            <email>joao.silva@example.com</email>
+            <telefone>(84) 99999-1111</telefone>
+            <telefone>(84) 98888-2222</telefone>
+        </proprietario>
+        <endereco>
+            <rua>Av. Beira Mar</rua>
+            <bairro>Ponta Negra</bairro>
+            <cidade>Natal</cidade>
+            <numero>1000</numero>
+        </endereco>
+        <caracteristicas>
+            <tamanho>120</tamanho>
+            <numQuartos>3</numQuartos>
+            <numBanheiros>2</numBanheiros>
+        </caracteristicas>
+        <valor>R$ 450.000,00</valor>
+    </imovel>
+
+    <imovel>
+        <descricao>Casa com jardim amplo</descricao>
+        <proprietario>
+            <nome>Maria Oliveira</nome>
+            <telefone>(84) 97777-3333</telefone>
+        </proprietario>
+        <endereco>
+            <rua>Rua das Flores</rua>
+            <bairro>Lagoa Nova</bairro>
+            <cidade>Natal</cidade>
+            <numero>250</numero>
+        </endereco>
+        <caracteristicas>
+            <tamanho>200</tamanho>
+            <numQuartos>4</numQuartos>
+            <numBanheiros>3</numBanheiros>
+        </caracteristicas>
+        <valor>R$ 650.000,00</valor>
+    </imovel>
+
+    <imovel>
+        <descricao>Kitnet mobiliada</descricao>
+        <proprietario>
+            <nome>Carlos Mendes</nome>
+            <email>carlos.mendes@example.com</email>
+        </proprietario>
+        <endereco>
+            <rua>Rua Central</rua>
+            <bairro>Tirol</bairro>
+            <cidade>Natal</cidade>
+            <numero>50</numero>
+        </endereco>
+        <caracteristicas>
+            <tamanho>45</tamanho>
+            <numQuartos>1</numQuartos>
+            <numBanheiros>1</numBanheiros>
+        </caracteristicas>
+        <valor>R$ 180.000,00</valor>
+    </imovel>
+
+    <imovel>
+        <descricao>Chácara com piscina</descricao>
+        <proprietario>
+            <nome>Fernanda Lima</nome>
+            <email>fernanda.lima@example.com</email>
+            <telefone>(84) 96666-4444</telefone>
+        </proprietario>
+        <endereco>
+            <rua>Estrada da Serra</rua>
+            <bairro>Zona Rural</bairro>
+            <cidade>Macaíba</cidade>
+        </endereco>
+        <caracteristicas>
+            <tamanho>500</tamanho>
+            <numQuartos>5</numQuartos>
+            <numBanheiros>4</numBanheiros>
+        </caracteristicas>
+        <valor>R$ 850.000,00</valor>
+    </imovel>
+
+    <imovel>
+        <descricao>Loft moderno no centro</descricao>
+        <proprietario>
+            <nome>Lucas Pereira</nome>
+            <telefone>(84) 95555-5555</telefone>
+            <email>lucas.pereira@example.com</email>
+        </proprietario>
+        <endereco>
+            <rua>Av. Rio Branco</rua>
+            <bairro>Centro</bairro>
+            <cidade>Natal</cidade>
+            <numero>300</numero>
+        </endereco>
+        <caracteristicas>
+            <tamanho>70</tamanho>
+            <numQuartos>1</numQuartos>
+            <numBanheiros>1</numBanheiros>
+        </caracteristicas>
+        <valor>R$ 320.000,00</valor>
+    </imovel>
+</imobiliaria>
