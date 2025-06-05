@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:i="http://imobiliaria.org"
+        targetNamespace="http://imobiliaria.org"
+        elementFormDefault="qualified">
+
+    <element name="descricao" type="string"/>
+    <element name="nome" type="string"/>
+    <element name="email" type="string"/>
+    <element name="telefone" type="string"/>
+    <element name="rua" type="string"/>
+    <element name="bairro" type="string"/>
+    <element name="cidade" type="string"/>
+    <element name="numero" type="integer"/>
+    <element name="valor" type="string"/>
+
+    <element name="tamanho">
+        <simpleType>
+            <restriction base="decimal"/>
+        </simpleType>
+    </element>
+
+    <element name="numQuartos" type="integer"/>
+    <element name="numBanheiros" type="integer"/>
+
+    <element name="caracteristicas">
+        <complexType>
+            <sequence>
+                <element ref="i:tamanho"/>
+                <element ref="i:numQuartos"/>
+                <element ref="i:numBanheiros"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <element name="endereco">
+        <complexType>
+            <sequence>
+                <element ref="i:rua"/>
+                <element ref="i:bairro"/>
+                <element ref="i:cidade"/>
+                <element ref="i:numero" minOccurs="0"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <element name="proprietario">
+        <complexType>
+            <sequence>
+                <element ref="i:nome"/>
+                <choice maxOccurs="unbounded">
+                    <element ref="i:email"/>
+                    <element ref="i:telefone"/>
+                </choice>
+            </sequence>
+        </complexType>
+    </element>
+
+    <element name="imovel">
+        <complexType>
+            <sequence>
+                <element ref="i:descricao"/>
+                <element ref="i:proprietario"/>
+                <element ref="i:endereco"/>
+                <element ref="i:caracteristicas"/>
+                <element ref="i:valor"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <element name="imobiliaria">
+        <complexType>
+            <sequence>
+                <element ref="i:imovel" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+</schema>
