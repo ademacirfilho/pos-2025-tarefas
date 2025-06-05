@@ -9,29 +9,6 @@
     <element name="ingrediente" type="string"/>
     <element name="tempoPreparo" type="string"/>
     <element name="calorias" type="integer"/>
-
-    <element name="prato">
-        <complexType>
-            <sequence>
-                <element ref="c:nome"/>
-                <element ref="c:descricao"/>
-                <element ref="c:ingredientes"/>
-                <element ref="c:preco"/>
-                <element ref="c:calorias"/>
-                <element ref="c:tempoPreparo"/>
-            </sequence>
-            <attribute name="id" type="integer" use="required"/>
-        </complexType>
-    </element>
-
-    <element name="ingredientes">
-        <complexType>
-            <sequence>
-                <element ref="c:ingrediente" maxOccurs="unbounded"/>
-            </sequence>
-        </complexType>
-    </element>
-
     <element name="preco">
         <simpleType>
             <restriction base="decimal">
@@ -44,6 +21,28 @@
         <complexType>
             <sequence>
                 <element ref="c:prato" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <element name="prato">
+        <complexType>
+            <sequence>
+                <element ref="c:nome"/>
+                <element ref="c:descricao"/>
+                <element ref="c:ingredientes"/>
+                <element ref="c:preco"/>
+                <element ref="c:calorias"/>
+                <element ref="c:tempoPreparo"/>
+            </sequence>
+            <attribute name="id" type="integer"/>
+        </complexType>
+    </element>
+
+    <element name="ingredientes">
+        <complexType>
+            <sequence>
+                <element ref="c:ingrediente" maxOccurs="unbounded"/>
             </sequence>
         </complexType>
     </element>
