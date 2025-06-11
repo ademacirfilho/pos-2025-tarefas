@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quiz xmlns="http://quiz.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://quiz.org quiz.xsd"
+      versao="1.0">
+    <disciplina>Matemática</disciplina>
+    <professor>
+        <nome>João Silva</nome>
+        <matricula>12345</matricula>
+    </professor>
+    <turma>8A</turma>
+    <data>2023-10-01</data>
+    <questoes>
+        <questao>
+            <enunciado>Qual é o resultado de 2 + 2?</enunciado>
+            <pontuacao>1</pontuacao>
+            <alternativas>
+                <alternativa correta="nao">3</alternativa>
+                <alternativa correta="sim">4</alternativa>
+                <alternativa correta="nao">5</alternativa>
+                <alternativa correta="nao">6</alternativa>
+            </alternativas>
+        </questao>
+        <questao>
+            <enunciado>Qual é a capital da França?</enunciado>
+            <pontuacao>1</pontuacao>
+            <alternativas>
+                <alternativa correta="nao">Londres</alternativa>
+                <alternativa correta="sim">Paris</alternativa>
+                <alternativa correta="nao">Berlim</alternativa>
+                <alternativa correta="nao">Roma</alternativa>
+            </alternativas>
+        </questao>
+        <questao>
+            <enunciado>Qual é o maior planeta do Sistema Solar?</enunciado>
+            <pontuacao>1</pontuacao>
+            <alternativas>
+                <alternativa correta="nao">Terra</alternativa>
+                <alternativa correta="sim">Jupiter</alternativa>
+                <alternativa correta="nao">Marte</alternativa>
+                <alternativa correta="nao">Saturno</alternativa>
+            </alternativas>
+        </questao>
+        <questao>
+            <enunciado>Quantos segundos há em um minuto?</enunciado>
+            <pontuacao>1</pontuacao>
+            <alternativas>
+                <alternativa correta="sim">60</alternativa>
+                <alternativa correta="nao">30</alternativa>
+                <alternativa correta="nao">90</alternativa>
+                <alternativa correta="nao">120</alternativa>
+            </alternativas>
+        </questao>
+        <questao>
+            <enunciado>Qual é a fórmula química da água?</enunciado>
+            <pontuacao>1</pontuacao>
+            <alternativas>
+                <alternativa correta="nao">CO2</alternativa>
+                <alternativa correta="sim">H2O</alternativa>
+                <alternativa correta="nao">O2</alternativa>
+                <alternativa correta="nao">CH4</alternativa>
+            </alternativas>
+        </questao>
+    </questoes>
+</quiz>
