@@ -1,0 +1,77 @@
+{
+    "quiz": [
+        {
+            "disciplina": "Matemática",
+            "professor": {
+                "nome": "João Silva",
+                "matricula": "123456"
+            },
+            "turma": "8A",
+            "data": "2023-10-15"
+        },
+        {
+            "questoes": [
+                {
+                    "id": 1,
+                    "enunciado": "Qual é o resultado de 2 + 2?",
+                    "pontuacao": 1,
+                    "alternativas": [
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ],
+                    "respostaCorreta": "4"
+                },
+                {
+                    "id": 2,
+                    "enunciado": "Qual é a capital da França?",
+                    "pontuacao": 1,
+                    "alternativas": [
+                        "Londres",
+                        "Paris",
+                        "Berlim",
+                        "Roma"
+                    ],
+                    "respostaCorreta": "Paris"
+                },
+                {
+                    "id": 3,
+                    "enunciado": "Qual é o maior planeta do Sistema Solar?",
+                    "pontuacao": 1,
+                    "alternativas": [
+                        "Terra",
+                        "Júpiter",
+                        "Marte",
+                        "Saturno"
+                    ],
+                    "respostaCorreta": "Júpiter"
+                },
+                {
+                    "id": 4,
+                    "enunciado": "Quantos segundos há em um minuto?",
+                    "pontuacao": 1,
+                    "alternativas": [
+                        "60",
+                        "30",
+                        "90",
+                        "120"
+                    ],
+                    "respostaCorreta": "60"
+                },
+                {
+                    "id": 5,
+                    "enunciado": "Qual é a fórmula química da água?",
+                    "pontuacao": 1,
+                    "alternativas": [
+                        "CO2",
+                        "H2O",
+                        "O2",
+                        "CH4"
+                    ],
+                    "respostaCorreta": "H2O"
+                }
+            ]
+        }
+    ]
+}
