@@ -1,0 +1,59 @@
+{
+    "cardapio": [
+        {
+            "prato": [
+                {
+                    "id": 1,
+                    "nome": "Filé à Parmegiana",
+                    "descricao": "Filé de carne bovina empanado, coberto com molho de tomate e queijo gratinado.",
+                    "ingredientes": [
+                        "Filé de carne bovina",
+                        "Farinha de rosca",
+                        "Ovo",
+                        "Queijo mussarela",
+                        "Molho de tomate",
+                        "Sal",
+                        "Pimenta"
+                    ],
+                    "preco": 45,
+                    "calorias": 800,
+                    "tempoPreparo": "30 minutos"
+                },
+                {
+                    "id": 2,
+                    "nome": "Salmão Grelhado com Legumes",
+                    "descricao": "Filé de salmão grelhado servido com mix de legumes salteados na manteiga.",
+                    "ingredientes": [
+                        "Salmão",
+                        "Brócolis",
+                        "Cenoura",
+                        "Abobrinha",
+                        "Azeite",
+                        "Limão",
+                        "Sal",
+                        "Pimenta"
+                    ],
+                    "preco": 54,
+                    "calorias": 620,
+                    "tempoPreparo": "25 minutos"
+                },
+                {
+                    "id": 3,
+                    "nome": "Risoto de Frango com Cogumelos",
+                    "descricao": "Arroz arbório cremoso com cubos de frango e cogumelos frescos.",
+                    "ingredientes": [
+                        "Arroz arbório",
+                        "Peito de frango",
+                        "Cogumelos frescos",
+                        "Caldo de galinha",
+                        "Queijo parmesão",
+                        "Manteiga"
+                    ],
+                    "preco": 45,
+                    "calorias": 700,
+                    "tempoPreparo": "40 minutos"
+                }
+            ]
+        }
+    ]
+}
