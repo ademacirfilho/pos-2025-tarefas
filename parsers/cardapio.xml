@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cardapio>
+    <prato id="1">
+        <nome>Filé à Parmegiana</nome>
+        <descricao>Filé de carne bovina empanado, coberto com molho de tomate e queijo derretido.</descricao>
+        <ingredientes>
+            <ingrediente>Filé mignon</ingrediente>
+            <ingrediente>Farinha de rosca</ingrediente>
+            <ingrediente>Ovos</ingrediente>
+            <ingrediente>Molho de tomate</ingrediente>
+            <ingrediente>Queijo mussarela</ingrediente>
+            <ingrediente>Orégano</ingrediente>
+        </ingredientes>
+        <preco>39.90</preco>
+        <calorias>850</calorias>
+        <tempoPreparo>30 minutos</tempoPreparo>
+    </prato>
+
+    <prato id="2">
+        <nome>Salmão Grelhado com Legumes</nome>
+        <descricao>Filé de salmão grelhado servido com mix de legumes salteados na manteiga.</descricao>
+        <ingredientes>
+            <ingrediente>Salmão</ingrediente>
+            <ingrediente>Brócolis</ingrediente>
+            <ingrediente>Cenoura</ingrediente>
+            <ingrediente>Abobrinha</ingrediente>
+            <ingrediente>Azeite</ingrediente>
+            <ingrediente>Manteiga</ingrediente>
+            <ingrediente>Limão</ingrediente>
+            <ingrediente>Sal</ingrediente>
+            <ingrediente>Pimenta</ingrediente>
+        </ingredientes>
+        <preco>54.00</preco>
+        <calorias>620</calorias>
+        <tempoPreparo>25 minutos</tempoPreparo>
+    </prato>
+
+    <prato id="3">
+        <nome>Risoto de Frango com Cogumelos</nome>
+        <descricao>Arroz arbório cremoso com cubos de frango e cogumelos frescos.</descricao>
+        <ingredientes>
+            <ingrediente>Arroz arbório</ingrediente>
+            <ingrediente>Peito de frango</ingrediente>
+            <ingrediente>Cogumelos frescos</ingrediente>
+            <ingrediente>Caldo de galinha</ingrediente>
+            <ingrediente>Queijo parmesão</ingrediente>
+            <ingrediente>Manteiga</ingrediente>
+        </ingredientes>
+        <preco>45.00</preco>
+        <calorias>700</calorias>
+        <tempoPreparo>40 minutos</tempoPreparo>
+    </prato>
+</cardapio>
