@@ -1,0 +1,111 @@
+[
+    {
+        "descricao": "Apartamento com vista para o mar",
+        "proprietario": {
+            "nome": "João Silva",
+            "telefones": [
+                "(84) 99999-1111",
+                "(84) 98888-2222"
+            ],
+            "email": "joao.silva@example.com"
+        },
+        "endereco": {
+            "rua": "Av. Beira Mar",
+            "bairro": "Ponta Negra",
+            "cidade": "Natal",
+            "numero": "1000"
+        },
+        "caracteristicas": {
+            "tamanho": "120",
+            "numQuartos": "3",
+            "numBanheiros": "2"
+        },
+        "valor": "R$ 450.000,00"
+    },
+    {
+        "descricao": "Casa com jardim amplo",
+        "proprietario": {
+            "nome": "Maria Oliveira",
+            "telefones": [
+                "(84) 97777-3333"
+            ],
+            "email": null
+        },
+        "endereco": {
+            "rua": "Rua das Flores",
+            "bairro": "Lagoa Nova",
+            "cidade": "Natal",
+            "numero": "250"
+        },
+        "caracteristicas": {
+            "tamanho": "200",
+            "numQuartos": "4",
+            "numBanheiros": "3"
+        },
+        "valor": "R$ 650.000,00"
+    },
+    {
+        "descricao": "Kitnet mobiliada",
+        "proprietario": {
+            "nome": "Carlos Mendes",
+            "telefones": [],
+            "email": "carlos.mendes@example.com"
+        },
+        "endereco": {
+            "rua": "Rua Central",
+            "bairro": "Tirol",
+            "cidade": "Natal",
+            "numero": "50"
+        },
+        "caracteristicas": {
+            "tamanho": "45",
+            "numQuartos": "1",
+            "numBanheiros": "1"
+        },
+        "valor": "R$ 180.000,00"
+    },
+    {
+        "descricao": "Chácara com piscina",
+        "proprietario": {
+            "nome": "Fernanda Lima",
+            "telefones": [
+                "(84) 96666-4444"
+            ],
+            "email": "fernanda.lima@example.com"
+        },
+        "endereco": {
+            "rua": "Estrada da Serra",
+            "bairro": "Zona Rural",
+            "cidade": "Macaíba",
+            "numero": null
+        },
+        "caracteristicas": {
+            "tamanho": "500",
+            "numQuartos": "5",
+            "numBanheiros": "4"
+        },
+        "valor": "R$ 850.000,00"
+    },
+    {
+        "descricao": "Loft moderno no centro",
+        "proprietario": {
+            "nome": "Lucas Pereira",
+            "telefones": [
+                "(84) 95555-5555"
+            ],
+            "email": "lucas.pereira@example.com"
+        },
+        "endereco": {
+            "rua": "Av. Rio Branco",
+            "bairro": "Centro",
+            "cidade": "Natal",
+            "numero": "300"
+        },
+        "caracteristicas": {
+            "tamanho": "70",
+            "numQuartos": "1",
+            "numBanheiros": "1"
+        },
+        "valor": "R$ 320.000,00"
+    }
+]
