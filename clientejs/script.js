@@ -4,11 +4,22 @@ const searchInput = document.getElementById('searchInput');
 const loader = document.getElementById('loader');
 const modal = document.getElementById('pokemon-modal');
 const modalContent = document.getElementById('modal-content');
-const closeModalButton = document.getElementById('close-modal');
 
 // Armazenará todos os dados dos Pokémon para a pesquisa
 let allPokemonData = [];
 const POKEMON_COUNT = 151; // Vamos buscar a primeira geração
+
+/**
+ * Mapeamento de nomes de stats para abreviações mais limpas
+ */
+const statNameMapping = {
+    'hp': 'HP',
+    'attack': 'Attack',
+    'defense': 'Defense',
+    'special-attack': 'Sp. Atk',
+    'special-defense': 'Sp. Def',
+    'speed': 'Speed'
+};
 
 /**
  * Função principal que busca os dados da API
@@ -33,7 +44,6 @@ const fetchAllPokemon = async () => {
 
 /**
  * Exibe os Pokémon na grade com o novo design
- * @param {Array} pokemonList - A lista de Pokémon a ser exibida
  */
 const displayPokemon = (pokemonList) => {
     pokedexGrid.innerHTML = '';
@@ -48,15 +58,15 @@ const displayPokemon = (pokemonList) => {
         ).join(' ');
         
         const card = document.createElement('div');
-        card.className = 'relative rounded-lg shadow-lg p-4 flex flex-col items-center cursor-pointer transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 text-white overflow-hidden';
+        card.className = 'relative rounded-xl shadow-lg p-4 flex flex-col items-center justify-center cursor-pointer transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 text-white overflow-hidden h-48';
         
-        card.style.background = `linear-gradient(to bottom right, ${cardColor}, ${adjustColor(cardColor, -40)})`;
+        card.style.background = `linear-gradient(135deg, ${adjustColor(cardColor, 20)}, ${adjustColor(cardColor, -20)})`;
 
         card.innerHTML = `
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" class="absolute -bottom-4 -right-4 w-28 h-28 opacity-20 rotate-12" alt="Pokeball watermark">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" class="absolute -bottom-4 -right-4 w-28 h-28 opacity-10 rotate-12" alt="Pokeball watermark">
             <span class="absolute top-2 right-3 font-bold text-lg" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.7);">#${pokemon.id.toString().padStart(3, '0')}</span>
-            <img src="${pokemonSprite}" alt="${pokemon.name}" class="w-28 h-28 z-10" style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.4));">
-            <h2 class="text-xl font-bold capitalize mt-2 z-10 text-shadow-sm">${pokemon.name}</h2>
+            <img src="${pokemonSprite}" alt="${pokemon.name}" class="w-20 h-20 z-10" style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.4));">
+            <h2 class="text-xl font-bold capitalize mt-2 z-10 text-shadow-sm text-center">${pokemon.name}</h2>
             <div class="flex gap-2 mt-2 z-10">
                 ${typesHtml}
             </div>
@@ -81,90 +91,124 @@ searchInput.addEventListener('input', (e) => {
 
 /**
  * Busca dados da cadeia de evolução e a exibe
- * @param {Object} pokemon - O objeto do Pokémon
  */
 const showPokemonDetails = async (pokemon) => {
+    document.body.style.overflow = 'hidden';
+
     try {
         const speciesResponse = await fetch(pokemon.species.url);
         const speciesData = await speciesResponse.json();
         const evolutionChainResponse = await fetch(speciesData.evolution_chain.url);
         const evolutionChainData = await evolutionChainResponse.json();
-        displayModal(pokemon, evolutionChainData);
+        await displayModal(pokemon, evolutionChainData);
     } catch (error) {
         console.error("Erro ao buscar detalhes do Pokémon:", error);
-        modalContent.innerHTML = "<p>Não foi possível carregar os detalhes.</p>";
+        modalContent.innerHTML = "<p class='p-6'>Não foi possível carregar os detalhes.</p>";
     }
+    modal.classList.remove('hidden');
 };
 
 /**
- * Constrói e exibe o modal
- * @param {Object} pokemon - Dados do Pokémon
- * @param {Object} evolutionChain - Dados da cadeia de evolução
+ * Constrói e exibe o modal com o novo design
  */
 const displayModal = (pokemon, evolutionChain) => {
     const primaryType = pokemon.types[0].type.name;
     const modalColor = getTypeColor(primaryType);
 
     const typesHtml = pokemon.types.map(typeInfo => 
-        `<span class="px-3 py-1 text-sm text-white rounded-full" style="background-color: ${getTypeColor(typeInfo.type.name)}">${typeInfo.type.name}</span>`
+        `<span class="px-3 py-1 text-sm font-semibold text-white rounded-full shadow-md" style="background-color: rgba(255, 255, 255, 0.2);">${typeInfo.type.name}</span>`
     ).join(' ');
 
-    const statsHtml = pokemon.stats.map(stat => `
-        <div class="flex items-center gap-2">
-            <span class="capitalize font-semibold w-1/3">${stat.stat.name.replace('-', ' ')}</span>
-            <div class="w-2/3 bg-gray-200 rounded-full h-4">
-                <div class="h-4 rounded-full text-xs text-white flex items-center justify-end px-2" style="width: ${Math.min(stat.base_stat, 150)}px; background-color: ${modalColor};">${stat.base_stat}</div>
+    const statsHtml = pokemon.stats.map(stat => {
+        const statName = statNameMapping[stat.stat.name] || stat.stat.name.replace('-', ' ');
+        const statPercentage = (stat.base_stat / 255) * 100; 
+        
+        return `
+        <div class="grid grid-cols-12 items-center gap-2 text-sm">
+            <span class="col-span-4 font-semibold text-gray-500">${statName}</span>
+            <span class="col-span-2 font-bold text-gray-800 text-right">${stat.base_stat}</span>
+            <div class="col-span-6 bg-gray-200 rounded-full h-2">
+                <div class="h-2 rounded-full" style="width: ${statPercentage}%; background-color: ${modalColor};"></div>
             </div>
         </div>
-    `).join('');
+        `
+    }).join('');
 
     const evolutionHtml = parseEvolutionChain(evolutionChain.chain);
 
     modalContent.innerHTML = `
-        <div class="rounded-lg" style="background: linear-gradient(to bottom right, ${modalColor}, ${adjustColor(modalColor, -40)});">
-            <button id="close-modal-inner" class="absolute top-4 right-4 text-white text-3xl font-bold text-shadow">&times;</button>
-            <div class="text-center p-6">
-                <img src="${pokemon.sprites.other['official-artwork'].front_default || pokemon.sprites.front_default}" alt="${pokemon.name}" class="w-40 h-40 mx-auto" style="filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.5));">
-                <h2 class="text-4xl font-bold capitalize mt-2 text-white text-shadow">${pokemon.name}</h2>
-                <p class="text-white/80 mb-4 text-lg">#${pokemon.id.toString().padStart(3, '0')}</p>
-                <div class="flex justify-center gap-2">${typesHtml}</div>
+        <div class="relative p-6 rounded-t-2xl text-white" style="background: linear-gradient(135deg, ${adjustColor(modalColor, 20)}, ${adjustColor(modalColor, -20)})">
+            
+            <button id="close-modal-inner" class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center bg-white/20 rounded-full hover:bg-white/40 transition-colors z-20">
+                <span class="text-2xl font-bold">&times;</span>
+            </button>
+            
+            <div class="flex flex-col sm:flex-row items-center gap-4">
+                <div class="relative flex-shrink-0">
+                     <img src="${pokemon.sprites.other['official-artwork'].front_default}" alt="${pokemon.name}" class="w-32 h-32 sm:w-40 sm:h-40" style="filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.4));">
+                </div>
+                <div class="text-center sm:text-left z-10">
+                    <p class="font-bold text-lg opacity-80">#${pokemon.id.toString().padStart(3, '0')}</p>
+                    <h2 class="text-4xl font-black capitalize text-shadow">${pokemon.name}</h2>
+                    <div class="flex justify-center sm:justify-start gap-2 mt-3">${typesHtml}</div>
+                </div>
             </div>
         </div>
         
-        <div class="p-6">
-            <h3 class="font-bold text-xl mb-4 border-b pb-2">Estatísticas</h3>
-            <div class="space-y-3">${statsHtml}</div>
+        <div class="p-6 bg-white rounded-b-2xl">
+            <div>
+                <h3 class="font-bold text-xl mb-4 text-gray-800 border-b pb-2">Estatísticas</h3>
+                <div class="space-y-3">${statsHtml}</div>
+            </div>
             
-            <h3 class="font-bold text-xl mt-6 mb-4 border-b pb-2">Evoluções</h3>
-            <div class="flex justify-around items-center gap-2 flex-wrap">${evolutionHtml}</div>
+            <div class="mt-6">
+                 <h3 class="font-bold text-xl mb-4 text-gray-800 border-b pb-2">Evoluções</h3>
+                 <div class="flex justify-around items-center gap-2 flex-wrap">${evolutionHtml}</div>
+            </div>
         </div>
     `;
-
-    modal.classList.remove('hidden');
-    document.getElementById('close-modal-inner').addEventListener('click', () => modal.classList.add('hidden'));
 };
 
 /**
  * Função recursiva para percorrer e montar o HTML da cadeia de evolução
- * @param {Object} chain - O objeto da cadeia de evolução
- * @returns {String} - O HTML da cadeia de evolução
  */
 const parseEvolutionChain = (chain) => {
     let html = `
-        <div class="text-center">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${getPokemonIdFromUrl(chain.species.url)}.png" class="w-24 h-24 mx-auto hover:scale-110 transition-transform">
-            <p class="capitalize font-semibold">${chain.species.name}</p>
+        <div class="flex flex-col items-center text-center p-2">
+            <img 
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${getPokemonIdFromUrl(chain.species.url)}.png" 
+                class="w-24 h-24 mx-auto hover:scale-110 transition-transform cursor-pointer"
+                alt="${chain.species.name}"
+                onclick="changePokemonInModal('${chain.species.name}')"
+            >
+            <p class="capitalize font-semibold mt-1">${chain.species.name}</p>
         </div>
     `;
 
     if (chain.evolves_to.length > 0) {
-        html += '<span class="text-3xl font-bold text-gray-400 self-center">&rarr;</span>';
-        chain.evolves_to.forEach(evolution => {
-            html += parseEvolutionChain(evolution);
-        });
+        html += `<div class="flex items-center justify-center text-gray-400 text-2xl font-light self-center mx-2">&gt;</div>`;
+        if (chain.evolves_to.length > 1) {
+            html += '<div class="flex flex-col gap-4">';
+            chain.evolves_to.forEach(evolution => {
+                html += parseEvolutionChain(evolution);
+            });
+            html += '</div>';
+        } else {
+             html += parseEvolutionChain(chain.evolves_to[0]);
+        }
     }
     return html;
 };
+
+/**
+ * Permite clicar na evolução para ver seus detalhes
+ */
+const changePokemonInModal = (pokemonName) => {
+    const newPokemon = allPokemonData.find(p => p.name === pokemonName);
+    if (newPokemon) {
+        showPokemonDetails(newPokemon);
+    }
+}
 
 // Funções Auxiliares
 const getPokemonIdFromUrl = (url) => url.split('/').filter(Boolean).pop();
@@ -183,11 +227,11 @@ const adjustColor = (hex, amount) => {
     return '#' + hex.replace(/^#/, '').replace(/../g, color => ('0'+Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
 };
 
-// Eventos para fechar o modal
-closeModalButton.addEventListener('click', () => modal.classList.add('hidden'));
+// Evento de fechar o modal
 modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
+    if (e.target.id === 'pokemon-modal' || e.target.closest('#close-modal-inner')) {
         modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
     }
 });
 
